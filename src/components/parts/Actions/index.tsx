@@ -15,7 +15,7 @@ const Actions = () => {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    audioRef.current = new Audio("/sounds/click.mp3");
+    audioRef.current = new Audio("/sounds/click.wav");
     audioRef.current.load();
   }, []);
 
