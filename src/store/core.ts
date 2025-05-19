@@ -234,7 +234,7 @@ export const startTimer = () => {
 };
 
 export const changeFocusLength = (value: number) => {
-  if (value < 10 || value > 60) return;
+  if (value < 5 || value > 60) return;
 
   const updatedCore = {
     ...core.value,
@@ -306,6 +306,8 @@ export const changeLongBreakLength = (value: number) => {
 };
 
 export const changeUntillBreak = (value: number) => {
+  if (value < 2 || value > 20) return;
+
   core.value = {
     ...core.value,
     timesTillLongBreak: value,
