@@ -8,17 +8,21 @@ import PlayIcon from "../../icons/PlayIcon";
 import NextIcon from "../../icons/NextIcon";
 import { returnColorBasedOnMode } from "../../../lib/utils";
 import { openModal } from "../../../store/modal";
-
-if (typeof window !== "undefined") {
-  const audio = new Audio("/sounds/click.mp3");
-}
+import { useEffect, useRef } from "preact/hooks";
 
 const Actions = () => {
   const actionIcon = core.value.isRunning ? <PauseIcon /> : <PlayIcon />;
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    audioRef.current = new Audio("/sounds/click.mp3");
+    audioRef.current.load();
+  }, []);
 
   const actionClick = () => {
     if (core.value.hasSoundEffects) {
-      audio.play();
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
     }
 
     if (core.value.isRunning) {
