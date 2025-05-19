@@ -1,0 +1,33 @@
+.option {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  height: 64px;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.option.red > .label {
+  background-color: var(--modal-red-c);
+}
+
+.option.green > .label {
+  background-color: var(--modal-green-c);
+}
+
+.option.blue > .label {
+  background-color: var(--modal-blue-c);
+}
+
+.optionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 400;
+  /* color: var(--modal-red-c); */
+}

@@ -1,0 +1,29 @@
+.component {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 120px;
+  font-weight: 500;
+  font-size: 24px;
+  border-width: 3px;
+  border-style: solid;
+}
+
+.red {
+  background: var(--chip-red-bg);
+  color: var(--chip-red-c);
+  border-color: var(--chip-red-c);
+}
+
+.green {
+  background: var(--chip-green-bg);
+  color: var(--chip-green-c);
+  border-color: var(--chip-green-c);
+}
+
+.blue {
+  background: var(--chip-blue-bg);
+  color: var(--chip-blue-c);
+  border-color: var(--chip-blue-c);
+}

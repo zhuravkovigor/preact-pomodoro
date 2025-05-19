@@ -1,0 +1,74 @@
+.component {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 96px;
+  height: 40px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #00000010;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.value {
+  flex: 1;
+  text-align: center;
+  height: 100%;
+  align-content: center;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  width: 29px;
+  height: 100%;
+  border-left: 2px solid #00000010;
+}
+
+.actions button:first-child {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #00000010;
+}
+
+.actions button {
+  width: 100%;
+  background: none;
+  border: none;
+  height: 100%;
+  cursor: pointer;
+  color: inherit;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: #00000005;
+  }
+}
+
+:global([data-mode-color="red"]) {
+  color: var(--chip-red-c);
+}
+
+:global([data-mode-color="green"]) {
+  color: var(--chip-green-c);
+}
+
+:global([data-mode-color="blue"]) {
+  color: var(--chip-blue-c);
+}
+
+:global([data-theme="dark"]) .component {
+  border-color: #ffffff10;
+}
+
+:global([data-theme="dark"]) .component .actions button:first-child {
+  border-color: #ffffff10;
+}
+
+:global([data-theme="dark"]) .component .actions {
+  border-color: #ffffff10;
+}

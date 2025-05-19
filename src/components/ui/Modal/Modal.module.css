@@ -1,0 +1,85 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 300ms;
+  pointer-events: none;
+}
+
+.overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.open .component {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.component {
+  border-radius: 24px;
+  min-width: 448px;
+  overflow: hidden;
+  transition: 300ms;
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+/* Цветовые модификаторы */
+.red {
+  background: var(--modal-red-bg);
+  color: var(--modal-red-c);
+}
+
+.green {
+  background: var(--modal-green-bg);
+  color: var(--modal-green-c);
+}
+
+.blue {
+  background: var(--modal-blue-bg);
+  color: var(--modal-blue-c);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 82px;
+  padding: 24px 27px;
+}
+
+/* Close button */
+.close {
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+/* Hover стили по цвету */
+.red .close:hover {
+  background-color: var(--red-200);
+}
+
+.green .close:hover {
+  background-color: var(--green-200);
+}
+
+.blue .close:hover {
+  background-color: var(--blue-200);
+}

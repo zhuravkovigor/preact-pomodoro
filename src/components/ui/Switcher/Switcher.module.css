@@ -1,0 +1,52 @@
+.component {
+  width: 34px;
+  height: 20px;
+  background: #00000024;
+  display: block;
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 300ms;
+}
+
+.circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 20px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: 300ms;
+}
+
+:global([data-theme="dark"]) .component {
+  background: #ffffff24;
+}
+
+.red > .circle {
+  background: var(--modal-red-bg);
+}
+
+.green .circle {
+  background: var(--modal-green-bg);
+}
+
+.blue .circle {
+  background: var(--modal-blue-bg);
+}
+
+.component.active.red {
+  background: var(--c-red);
+}
+
+.component.active.green {
+  background: var(--c-green);
+}
+
+.component.active.blue {
+  background: var(--c-blue);
+}
+
+.component.active > .circle {
+  left: 16px;
+}

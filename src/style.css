@@ -1,0 +1,121 @@
+[data-theme="light"] {
+  --bg-working: #fff2f2;
+  --bg-break: #f2fff5;
+  --bg-long-break: #f2f9ff;
+
+  /* Chip */
+  --chip-red-bg: #ff4c4c15;
+  --chip-red-c: #471515;
+
+  --chip-green-bg: #4dda6e15;
+  --chip-green-c: #14401d;
+
+  --chip-blue-bg: #4cacff15;
+  --chip-blue-c: #153047;
+
+  /* Modal */
+  --modal-red-bg: #fff2f2;
+  --modal-red-c: #471515;
+
+  --modal-green-bg: #f2fff5;
+  --modal-green-c: #14401d;
+
+  --modal-blue-bg: #f2f9ff;
+  --modal-blue-c: #153047;
+
+  /* New system *;
+
+  --red-100: #fff2f2; /* light bg */
+  --red-200: #ff4c4c15; /* translucent bg */
+  --red-800: #471515; /* dark text */
+
+  /* Green */
+  --green-100: #f2fff5;
+  --green-200: #4dda6e15;
+  --green-800: #14401d;
+
+  /* Blue */
+  --blue-100: #f2f9ff;
+  --blue-200: #4cacff15;
+  --blue-800: #153047;
+}
+
+[data-theme="dark"] {
+  --bg-working: #0d0404;
+  --bg-break: #040d06;
+  --bg-long-break: #04090d;
+
+  /* Chip */
+  --chip-red-bg: #ff4c4c15;
+  --chip-red-c: #fff2f2;
+
+  --chip-green-bg: #4dda6e15;
+  --chip-green-c: #f2fff5;
+
+  --chip-blue-bg: #4cacff15;
+  --chip-blue-c: #f2fff5;
+
+  /* Modal */
+  --modal-red-bg: #0d0404;
+  --modal-red-c: #fff2f2;
+
+  --modal-green-bg: #040d06;
+  --modal-green-c: #f2fff5;
+
+  --modal-blue-bg: #04090d;
+  --modal-blue-c: #f2f9ff;
+
+  /* New system */
+  --red-100: #fff2f2;
+  --red-200: #ff4c4c15;
+  --red-800: #0d0404;
+
+  /* Green */
+  --green-100: #f2fff5;
+  --green-200: #4dda6e15;
+  --green-800: #040d06;
+
+  /* Blue */
+  --blue-100: #f2f9ff;
+  --blue-200: #4cacff15;
+  --blue-800: #04090d;
+}
+
+[data-theme="light"] {
+  --c-red: #471515;
+  --c-green: #14401d;
+  --c-blue: #153047;
+}
+
+[data-theme="dark"] {
+  --c-red: #fff2f2;
+  --c-green: #f2fff5;
+  --c-blue: #f2f9ff;
+}
+
+:root {
+  font-family:
+    Roboto Flex,
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: #222;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: white;
+}
