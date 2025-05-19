@@ -3,6 +3,29 @@ import { PomodoroStates } from "../lib/types";
 import { load, save } from "../lib/utils";
 import { iconMap, notificationBody, notificationTitle } from "../lib/constants";
 
+// === Предзагрузка и кэш аудио ===
+const soundCache: { [key in PomodoroStates]?: HTMLAudioElement } = {};
+
+export const preloadSounds = () => {
+  const sounds: { [key in PomodoroStates]: string } = {
+    focus: "/sounds/focus.wav",
+    break: "/sounds/break.wav",
+    "long-break": "/sounds/long-break.wav",
+  };
+
+  for (const [mode, src] of Object.entries(sounds) as [
+    PomodoroStates,
+    string,
+  ][]) {
+    const audio = new Audio(src);
+    audio.load(); // Запускает предзагрузку
+    soundCache[mode] = audio;
+  }
+};
+
+// Вызов при инициализации
+preloadSounds();
+
 type Timer = {
   mode: PomodoroStates;
   minutes: number;
@@ -136,14 +159,6 @@ const animateTimeChange = (
 export const nextMode = () => {
   stopTimer();
 
-  const sounds: {
-    [key in PomodoroStates]: string;
-  } = {
-    focus: "/sounds/focus.wav",
-    break: "/sounds/break.wav",
-    "long-break": "/sounds/long-break.wav",
-  };
-
   let nextMode: PomodoroStates;
 
   if (core.value.mode === "focus") {
@@ -160,9 +175,13 @@ export const nextMode = () => {
 
   core.value = { ...core.value, mode: nextMode };
 
+  // Использование кэшированного звука
   if (core.value.hasSoundEffects) {
-    const audio = new Audio(sounds[nextMode]);
-    audio.play();
+    const cachedAudio = soundCache[nextMode];
+    if (cachedAudio) {
+      cachedAudio.currentTime = 0;
+      cachedAudio.play();
+    }
   }
 
   save("mode", nextMode);
@@ -177,14 +196,12 @@ export const nextMode = () => {
     }
   });
 
-  // === Уведомление при переходе режима ===
   if (Notification.permission === "granted") {
     new Notification(notificationTitle(), {
       body: notificationBody(),
       icon: iconMap[nextMode],
     });
   } else if (Notification.permission !== "denied") {
-    // Запросим разрешение, если ещё не было
     Notification.requestPermission().then((permission) => {
       if (permission === "granted") {
         new Notification(notificationTitle(), {
