@@ -9,12 +9,14 @@ import NextIcon from "../../icons/NextIcon";
 import { returnColorBasedOnMode } from "../../../lib/utils";
 import { openModal } from "../../../store/modal";
 
+// load audio before the component render
+const audio = new Audio("/sounds/click.mp3");
+
 const Actions = () => {
   const actionIcon = core.value.isRunning ? <PauseIcon /> : <PlayIcon />;
 
   const actionClick = () => {
     if (core.value.hasSoundEffects) {
-      const audio = new Audio("/sounds/click.mp3");
       audio.play();
     }
 
