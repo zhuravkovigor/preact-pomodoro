@@ -17,9 +17,11 @@ export const preloadSounds = () => {
     PomodoroStates,
     string,
   ][]) {
-    const audio = new Audio(src);
-    audio.load(); // Запускает предзагрузку
-    soundCache[mode] = audio;
+    if (typeof window !== "undefined") {
+      const audio = new Audio(src);
+      audio.load(); // Запускает предзагрузку
+      soundCache[mode] = audio;
+    }
   }
 };
 
