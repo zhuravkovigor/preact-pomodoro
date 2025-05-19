@@ -14,8 +14,8 @@ A perfect starting point for exploring modern frontend tools, or simply staying 
 git clone https://github.com/zhuravkovigor/preact-pomodoro.git
 
 cd preact-pomodoro
-pnpm install
-pnpm dev
+yarn
+yarn dev
 ```
 
 ## 🌟 Features
